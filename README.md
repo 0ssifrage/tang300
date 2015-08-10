@@ -6,4 +6,4 @@
 
 `tang300.v4.json` 为整理后的唐诗文件。
 
-由于新浪微博字数限制，`poem2png` 将唐诗转化为图片后发送。字体选用 [文悦古体仿宋](http://wytype.com/typeface/WyueGutiFangsong/) 但会有部分字缺失。
+由于新浪微博字数限制，`poem2png.py` 将唐诗转化为图片后发送。字体选用 [文悦古体仿宋](http://wytype.com/typeface/WyueGutiFangsong/) 但会有部分字缺失。
