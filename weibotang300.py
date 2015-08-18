@@ -21,7 +21,8 @@ def main():
     logfile.close()
 
     p = ps[idx]
-    s = u'《%s》%s %s' % (p[1], p[2], p[0])
+    q = urllib.quote_plus(p[1].encode('utf8'))
+    s = u'《%s》%s %s https://www.google.com.hk/#q=%s' % (p[1], p[2], p[0], q)
     s = urllib.quote_plus(s.encode('utf8'))
     img = os.path.join(base_dir, 'poem_png/%03d.png' % idx)
     client.statuses.upload.post(
