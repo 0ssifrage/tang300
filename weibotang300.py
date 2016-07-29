@@ -15,10 +15,13 @@ def main():
     f = open(os.path.join(base_dir, 'tang300.v4.json'), 'r')
     ps = json.load(f)
     f.close()
-    logfilename = os.path.join(base_dir, 'log.txt')
-    logfile = open(logfilename, 'r')
-    idx = int(logfile.read())
-    logfile.close()
+    try:
+        logfilename = os.path.join(base_dir, 'log.txt')
+        logfile = open(logfilename, 'r')
+        idx = int(logfile.read())
+        logfile.close()
+    except:
+        idx = 0
 
     p = ps[idx]
     q = urllib.quote_plus(p[1].encode('utf8'))
@@ -28,7 +31,7 @@ def main():
     client.statuses.upload.post(
         status=s, pic=open(img, 'rb'))
 
-    idx += 1
+    idx = (idx+1) % len(ps)
     logfile = open(logfilename, 'w')
     logfile.write(str(idx))
     logfile.close()
